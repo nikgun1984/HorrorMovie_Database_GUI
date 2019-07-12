@@ -1,0 +1,25 @@
+{%extends "layout.html"%}
+{%block content%}
+<h1>Query Entry Form</h1>
+  <div class="content-section">
+    <form method="POST" action="">
+      {{form.hidden_tag()}}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">{{ legend }}</legend>
+        <p>
+            {{ form.text.label(class="form-control-label")}}<br>
+            {{ form.text(cols="100", rows="5") }}<br>
+            {% for error in form.text.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+      </fieldset>
+      <div class="form-group">
+        {{ form.submit(class="btn btn-primary btn-lg") }}
+        <a href="{{url_for('index')}}" class="btn btn-outline-primary btn-lg" role="button" aria-pressed="true">Go to the Main Menu</a>
+
+      </div>
+
+    </form>
+  </div>
+{%endblock content%}

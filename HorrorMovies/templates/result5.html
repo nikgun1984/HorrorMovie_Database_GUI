@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h1>Results:</h1>
+  <a href="{{url_for('submit1')}}" class="btn btn-outline-primary btn-lg" role="button" aria-pressed="true">Go back to Interesting Query Menu</a>
+  <br>
+  <br>
+  <table border = 1>
+    <tr style=“font-weight:bold”>
+      <th> Director's Name </th>
+      <th> Movie Count </th>
+    </tr>
+
+    {% for movie in movieDetails %}
+    <tr>
+      <td> {{movie[0]}} </td>
+      <td> {{movie[1]}} </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
